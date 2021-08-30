@@ -1,0 +1,88 @@
+{%extends "inicio/encabezado.html"%}
+
+{%block titulo%}Registro solicitud{%endblock%}
+
+{%block contenido%}
+<div class="container">
+    <h1 class="display-4">Registra tu solicitud de material</h1>
+    <p style="text-align: justify;" class="lead">Completa el siguiente formulario para la solicitud del material que necesitaras para
+        tus prácticas. Llena todos los campos correctamente y <strong>verifica muy bien</strong> la información
+        proporcionada.</p>
+    <hr>
+    <form action="{% url 'RegistrarSolicitud'%}" method="POST" role="form">
+        {%csrf_token%}
+        <div class="row mb-4 mt-4">
+            <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Nombre</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu nombre"
+                    name="nombre">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlInput2" class="col-sm-2 col-form-label">Apellido Paterno</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput2"
+                    placeholder="Ingresa tu apellido paterno" name="apellidoPa">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlInput3" class="col-sm-2 col-form-label">Apellido Materno</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput3"
+                    placeholder="Ingresa tu apellido materno" name="apellidoMa">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlInput4" class="col-sm-2 col-form-label">Carrera y especialidad</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput4"
+                    placeholder="Ingresa tu carrera y especialidad ej: (TI Ingeniería en desarrollo y gestión de software)"
+                    name="carreraEspecialidad">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlInput5" class="col-sm-2 col-form-label">Matrícula</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput5"
+                    placeholder="Ingresa tu matrícula ej: (UTM123456TI)" name="matricula">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlInput6" class="col-sm-2 col-form-label">Número de teléfono</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput6"
+                    placeholder="Ingresa tu número de teléfono a diez dígitos" name="telefono">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlInput7" class="col-sm-2 col-form-label">Turno</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput7"
+                    placeholder="Ingresa tu turno ej: (Matutino o Vespertino)" name="turno">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlInput8" class="col-sm-2 col-form-label">Correo electrónico
+                institucional</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="exampleFormControlInput8"
+                    placeholder="Ingresa tu correo electrónico institucional " name="correoElectronico">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">Material o materiales para las
+                prácticas</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    placeholder="En el siguiente cuadro de texto anota lo o los materiales que necesitaras para realizar tu práctica, intenta ser lo más descriptivo posible con los materiales. Una vez recibida la solicitud te responderemos lo más pronto posible, mantente atento de tu correo institucional, ya que ahí te informaremos el estatus de tu solicitud."
+                    name="material"></textarea>
+            </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-danger" type="reset">Borrar</button>
+        </div>
+    </form>
+</div>
+
+{%endblock%}
