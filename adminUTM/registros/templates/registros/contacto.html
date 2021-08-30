@@ -1,0 +1,62 @@
+{%extends "inicio/encabezado.html"%}
+
+{%block titulo%}Contacto{%endblock%}
+
+{%block contenido%}
+<div class="container">
+    <h1 class="display-4">Contacto</h1>
+    <p style="text-align: justify;" class="lead">Si necesitas información sobre una solicitud te invitamos a llenar el siguiente
+        formulario.</p>
+    <hr>
+    <form action="{% url 'Registrar'%}" method="POST" role="form">
+        {%csrf_token%}
+        <div class="row mb-4 mt-4">
+            <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Nombre</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu nombre" name="nombre">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlInput2" class="col-sm-2 col-form-label">Apellidos</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput2"
+                    placeholder="Ingresa tus apellidos" name="apellidos">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlInput3" class="col-sm-2 col-form-label">Carrera y especialidad</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput3"
+                    placeholder="Ingresa tu carrera y especialidad ej: (TI Ingeniería en desarrollo y gestión de software)" name="carreraEspecialidad">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlInput4" class="col-sm-2 col-form-label">Matrícula</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput4"
+                    placeholder="Ingresa tu matrícula ej: (UTM123456TI)" name="matricula">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlInput5" class="col-sm-2 col-form-label">Número de teléfono</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="exampleFormControlInput5"
+                    placeholder="Ingresa tu número de teléfono a diez dígitos" name="telefono">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">Dudas, preguntas o
+                aclaraciones</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    placeholder="Anota en el cuadro de texto tus dudas, preguntas o aclaraciones acerca de alguna solicitud de material, te responderemos lo más pronto posible." name="mensaje"></textarea>
+            </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-danger" type="reset">Borrar</button>
+        </div>
+    </form>
+</div>
+
+{%endblock%}

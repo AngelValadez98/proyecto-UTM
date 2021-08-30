@@ -1,0 +1,32 @@
+{%extends "inicio/encabezado.html"%}
+
+{%block titulo%}Consultar solicitud{%endblock%}
+
+{%block contenido%}
+<div class="container">
+    {%load static%}
+    <h1 class="display-4">Consulta tus solicitudes de material</h1>
+    <p style="text-align: justify;" class="mt-4 lead">En la siguiente tabla encontrarás las solicitudes de material que
+        has enviado.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Matrícula</th>
+                <th scope="col">Material</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for solicitud in solicitudes %}
+            <tr>
+                <td>{{solicitud.matricula}}</td>
+                <td>{{solicitud.material}}</td>
+                <td class="text-center"><a href="{%url 'ConsultaIndividual' solicitud.id%}">Editar</a></td>
+                <td class="text-center"><a href="{%url 'EliminarSolicitud' solicitud.id%}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{%endblock%}
